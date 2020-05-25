@@ -1,0 +1,98 @@
+<html>
+    <link rel="stylesheet" href="styles.css">
+<div id="Task1">
+
+    <p><b>Задание: </b>Написать программу с использованием JavaScript для выполнения на web-странице вычислений по данным, вводимым пользователем:</p>
+
+<p><b>Задание:</b> рассчитать для окружности радиуа r:<br>
+    а) Площадь сегмента, отсекаемого хордой дуги φ.<br>
+    б) Боковую поверхность прямого кругового конуса высотой h.</p>
+
+<p>Радиус r: <input id="Radius" type="text" class=positionl2><br></p>
+<p>Высота h: <input id="Height" type="text" class=positionl2></p>
+<p>Угол φ: <input id="Angle" type="text" class=positionl2><br><br></p>
+
+<img src=images\konus.png class="imagel2" style="left: 50%; top: 5%">
+<img src=images\krug.png class="imagel2" style="left: 30%; top: 5%;">
+
+<button id ="Calculate"> Рассчитать </button><br><br>
+<div id="Space">Площадь сегмента: </div>
+<div id="SideSurface">Боковая поверхность:</div>
+<hr>    
+</div>
+
+<div id="Task2">
+    <img src=images\treugolnik.png class="imagel2" style="left: 30%;">
+
+<p><b>Задание:</b> дано две стороны и угол между ними<br>
+      Найти все медианы <br></p>
+<p>Сторона 1:<input id="side1" type="text" class="positionl2"></p>
+<p>Сторона 2:<input id="side2" type="text" class="positionl2"></p>
+<p>Угол:<input id="angle1" type="text" class="positionl2"></p><br><br>
+<button id="Calculate2"> Рассчитать </button>
+</div><br>
+<div id="median1"> Медиана 1:</div>
+<div id="median2"> Медиана 2:</div>
+<div id="median3"> Медиана 3:</div>
+<hr>
+
+<script>
+
+    var S1 = Space;
+    var S2 = SideSurface;
+
+    var M1 = median1;
+    var M2 = median2;
+    var M3 = median3;
+
+function count(){
+    var r = document.getElementById('Radius').value;
+    var a = document.getElementById('Angle').value;
+    var h = document.getElementById('Height').value;
+
+    if(r == 0 || h == 0 || a == 0) {alert("Пожалуйста, заполните все поля.");}
+    else {
+    
+    var result = Math.pow(r, 2)*(a-Math.sin(a* Math.PI / 180))/2;
+    var result2 = Math.PI*r*Math.sqrt(Math.pow(r, 2)+Math.pow(h, 2));
+
+    result = result.toFixed(3);
+    result2 = result2.toFixed(3);
+
+    S1.textContent =  "Площадь сегмента: " + result;
+    S2.textContent = "Боковая поверхность: " + result2;
+    };
+};
+function count2(){
+    var side1 = document.getElementById('side1').value;
+    var side2 = document.getElementById('side2').value;
+    var a1 = document.getElementById('angle1').value;
+
+    if(side1 == 0 || side2 == 0 || a1 == 0) {alert("Пожалуйста, заполните все поля.");}
+    else{
+
+        var test = Math.cos(a1 * Math.PI / 180);
+
+        var resultmedian1 = Math.sqrt((Math.pow(side1, 2))+(Math.pow(side2, 2)) + 2*side1*side2*(Math.cos(a1* Math.PI / 180)))/2;
+        var resultmedian2 = Math.sqrt(Math.pow(side1, 2)+4*Math.pow(side2, 2) - 4*side1*side2*Math.cos(a1* Math.PI / 180))/2;
+        var resultmedian3 = Math.sqrt(4*Math.pow(side1, 2)+Math.pow(side2, 2) - 4*side1*side2*Math.cos(a1* Math.PI / 180))/2;
+
+        resultmedian1 = resultmedian1.toFixed(3);
+        resultmedian2 = resultmedian2.toFixed(3);
+        resultmedian3 = resultmedian3.toFixed(3);
+
+        M1.textContent = "Медиана 1: " + resultmedian1;
+        M2.textContent = "Медиана 2: " + resultmedian2;
+        M3.textContent = "Медиана 3: " + resultmedian3;
+    };
+    
+    
+};
+    
+
+document.getElementById('Calculate').addEventListener('click', count);
+document.getElementById('Calculate2').addEventListener('click', count2);
+
+</script>
+</body>
+</html>

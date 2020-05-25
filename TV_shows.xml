@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="TV_shows_table.xsl"?>
+
+<tv_programms>
+
+    <programm>
+            <name_of_translation> В мире животных </name_of_translation>
+            <day_of_translation>
+                <date> 13 </date>
+                <month> июня </month>
+                <year> 2020 </year>
+                <week_day> Суббота </week_day>
+            </day_of_translation>
+            <channel> BBC </channel>
+            <genre> Образовательный </genre>
+            <start_time> 12:00 </start_time>
+            <duration> 40  </duration>
+    </programm>
+
+    <programm>
+        <name_of_translation> Готовим вместе </name_of_translation>
+        <day_of_translation>
+            <date> 12 </date>
+            <month> июня </month>
+            <year> 2020 </year>
+            <week_day> Пятница </week_day>
+        </day_of_translation>
+        <channel> СТБ </channel>
+        <genre> Образовательный </genre>
+        <start_time> 9:00 </start_time>
+        <duration> 20  </duration>
+    </programm>
+
+    <programm>
+    <name_of_translation> Вечерний Стенд-Ап </name_of_translation>
+    <day_of_translation>
+        <date> 11 </date>
+        <month> июня </month>
+        <year> 2020 </year>
+        <week_day> Четверг </week_day>
+    </day_of_translation>
+    <channel> Новый </channel>
+    <genre> Развлекательный </genre>
+    <start_time> 20:00 </start_time>
+    <duration> 30  </duration>
+    </programm>
+
+    <programm>
+    <name_of_translation> История мира </name_of_translation>
+    <day_of_translation>
+        <date> 10 </date>
+        <month> июня </month>
+        <year> 2020 </year>
+        <week_day> Среда </week_day>
+    </day_of_translation>
+    <channel> Мега </channel>
+    <genre> Документальный </genre>
+    <start_time> 18:00 </start_time>
+    <duration> 45  </duration>
+    </programm>
+
+</tv_programms>

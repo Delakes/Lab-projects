@@ -1,0 +1,55 @@
+<html>
+<p><b>Задание: </b> Круг R=100 пикселей: создать кнопку, по клику на которой заданный элемент на странице будет вести себя следующим образом:<br>1. Отображается с отступами 50
+  пикселей от верхней границы и 200
+  пикселей от левой границы
+  <br>2. Изменяет радиус до 50
+  пикселей.
+  <br>3. Изменяет цвет на красный.
+  <br>4. Начинает движение в центр
+  экрана
+  <br>5. Изменяет прозрачность до 0.8
+  <br>6. Движется в левый верхний угол
+  растворяясь.</p>
+
+<button id="start">Начать движение</button>
+<button id="reset">Сбросить положение</button>
+
+<div id="square" class="box"></div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="ColorsJQ.js"></script>
+
+  <script>
+
+var key = 0;
+
+$('#start').click(function(){
+$('#square').animate({height: '100px', width: '100px'})
+.animate({backgroundColor: 'red'}).animate({left: '40%', top: '40%'})
+.animate({opacity: '0.7'}).animate({top: '0px', left: '0px', opacity: '0'}, "slow"); k=1;
+});
+
+$('#reset').click(function(){
+$('#square').css({top: '50px', left: '200px', backgroundColor: 'blue', height: '200px', width: '200px', opacity: '1'}); k=0;
+});
+  </script>
+  
+
+  <style>
+
+    .box{
+      background-color: blue;
+      position: relative;
+      top: 50px;
+      left: 200px;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      border: solid 1px black;
+
+    }
+
+  </style>
+
+</html>

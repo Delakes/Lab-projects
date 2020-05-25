@@ -1,0 +1,50 @@
+<html>
+<body vlink="black">
+    <div class="menu-list">
+    <li><a href="L1.html" target="content">Лабораторная работа 1</li>
+    <li><a href="L2.html" target="content">Лабораторная работа 2</li>
+    <li><a href="L3.html" target="content">Лабораторная работа 3</li>
+    <li><a href="L4.html" target="content">Лабораторная работа 4</li>
+    <li><a href="L5.html" target="content">Лабораторная работа 5</li>
+    <li><a href="L6.html" target="content">Лабораторная работа 6</li>
+    <li><a href="L7.html" target="content">Лабораторная работа 7</li>
+    <li><a href="L8.html" target="content">Лабораторная работа 8</li>
+    <li><a href="L9.html" target="content">Лабораторная работа 9</li>
+    <li><a href="TV_shows.xml" target="content">Лабораторная работа 10</li>
+    </div>
+</body>
+
+<style>
+
+.menu-list{
+    font-size: 20;
+}
+
+.menu-list li{
+    font-weight: bold;
+    font-family: 'Arial';
+    color: black;
+}
+
+.menu-list a{
+    text-decoration: none;
+    position: relative;
+}
+
+.menu-list a:after{
+    display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: black;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.menu-list a:hover:after{
+    width: 100%;
+}
+
+</style>
+</html>

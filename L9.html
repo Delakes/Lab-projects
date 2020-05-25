@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <meta charset=utf-8>
+       
+    </head>
+    <body>
+        <p><b>Задание: </b>Создайте XML-документ согласно варианту. Документ должен содержать не менее трех записей. <br>
+        <b>Задание 2: </b>Выполните DTD-описание созданного XML-документа, которое должно включать: описание элементов; описание атрибутов элементов; определение типа элементов.<br>
+        <b>Задание 3: </b> Разработайте XSD-схему XML-документа, созданного в лабораторной работе 10(1), которая должна включать:<br>
+        - описание элементов;<br>
+        - описание атрибутов элементов;<br>
+        - определение типа элементов;<br>
+        - определение последовательности использования элементов.<br>
+        <b>Информация о передачах на ТВ:</b><br>
+        - передача;<br>
+        - канал;<br>
+        - жанр;<br>
+        - время начала;<br>
+        - продолжительность; <br> 
+        - день:
+        <li>число;</li>
+        <li>месяц;</li>
+        <li>год;</li>
+        <li>день недели.</li></p>
+    
+        <p><a href="TV_shows.xml" download>XML-документ</a></p>
+    
+        <fieldset> <legend><b>DTD-описание</b></legend>
+            <p>&lt-- DTD --&gt   </p>
+            <p>&lt!DOCTYPE tv_programms SYSTEM [   </p>
+            <p>&lt!ELEMENT tv_programms(programm+)   </p>
+            <p>&lt!ELEMENT programm (name_of_translation, day_of_translation, channel, genre, start_time, duration)>  </p>
+            <p>&lt!ELEMENT name_of_translation (#PCDATA)>  </p>
+            <p>&lt!ELEMENT day_of_translation (#PCDATA)>  </p>
+            <p>&lt!ELEMENT channel (#PCDATA)>  </p>
+            <p>&lt!ELEMENT genre (#PCDATA)>  </p>
+            <p>&lt!ELEMENT start_time (#PCDATA)>  </p>
+            <p>&lt!ELEMENT duration (#PCDATA)>  </p>
+            <p>&lt!ATTLIST programm id ID #REQUIRED>  </p>
+            <p>&lt!ATTLIST genre type CDATA #REQUIRED> </p>
+                <p>]&gt  </p>
+
+         </fieldset>    
+
+         <br>
+
+        <fieldset> <legend><b>XSD-описание</b></legend>
+            <p></p>&ltxs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <p>&ltxs:element name="tv_programms">
+            <p>&ltxs:complexType>
+            <p>&ltxs:sequence>
+            <p>&ltxs:element name="programm" maxOccurs="unbounded" minOccurs="0">
+            <p>&ltxs:complexType>
+            <p>&ltxs:sequence>
+            <p>&ltxs:element type="xs:string" name="name_of_translation"/>
+            <p>&ltxs:element name="day_of_translation">
+            <p>&ltxs:complexType>
+            <p>&ltxs:sequence>
+            <p>&ltxs:element type="xs:float" name="date"/>
+            <p>&ltxs:element type="xs:string" name="month"/>
+            <p>&ltxs:element type="xs:float" name="year"/>
+            <p>&ltxs:element type="xs:string" name="week_day"/>
+            <p>&lt/xs:sequence>
+            <p>&lt/xs:complexType>
+            <p>&lt/xs:element>
+            <p>&ltxs:element type="xs:string" name="channel"/>
+            <p>&ltxs:element name="genre">
+            <p>&ltxs:complexType>
+            <p>&ltxs:simpleContent>
+            <p>&ltxs:extension base="xs:string">
+            <p>&ltxs:attribute type="xs:string" name="type" use="optional"/>
+            <p>&lt/xs:extension>
+            <p>&lt/xs:simpleContent>
+            <p>&lt/xs:complexType>
+            <p>&lt/xs:element>
+            <p>&ltxs:element type="xs:string" name="start_time"/>
+            <p>&ltxs:element type="xs:string" name="duration"/>
+            <p>&lt/xs:sequence>
+            <p>&ltxs:attribute type="xs:string" name="id" use="optional"/>
+            <p>&lt/xs:complexType>
+            <p>&lt/xs:element>
+            <p>&lt/xs:sequence>
+            <p>&lt/xs:complexType>
+            <p>&lt/xs:element>
+            <p>&lt/xs:schema>
+        </fieldset>  
+    </body>
+</html>

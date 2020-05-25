@@ -1,0 +1,85 @@
+<html>
+
+    <head>  <link rel="stylesheet" type="text/css" href="styles.css">
+        <meta charset=utf-8>
+       
+    </head>
+    <body>
+    <div>
+    <b>Задание:</b> <br>1. Создать страницу с динамическим содержанием  "Проверка значений, введенных пользователем в поля формы для регистрации. Форма должна содержать поля «Имя», «Фамилия», «Наименование
+    организации», «Номер кредитной карты», «Номер телефона», «Адрес электронной почты», кнопки «Отправить» и «Очистить».
+    <br>2. Осуществить проверку заполненности данными всех полей.
+    <br>3. Построить шаблон для проверки данных кредитной карточки с ограничением количества попыток неправильного ввода данных.
+    <br>4. Последняя проверка должна контролировать структуру и содержимое полей (правильность ввода имени и фамилии,номера телефона,электронного адреса.).
+    <br>5. Дана строка &#39;ave a#b a2b a$b a4b a5b a-b acb&#39;. Напишите регулярное выражение, которое найдет строки следующего вида: по краямстоят буквы &#39;a&#39; и &#39;b&#39;, а между ними - не буква и не цифра.
+    </div>
+        <br>
+     <div id="login">
+      <div class="flip">
+        <div class="form-signup">
+          <h1>Регистрация</h1>
+          <fieldset>
+          <p class="login-msg"></p>
+            <form  name="myform">
+              
+                <input type="text" input id="fname"  pattern="^[А-ЯЁ][а-яё]{1,15}$" placeholder="Имя" required />
+                <input type="text" input id="sname"  pattern="^[А-ЯЁ][а-яё]{1,15}$" placeholder="Фамилия" required />
+                <input type="text" input id="oname"  placeholder="Наименование организации" required />
+                <input type="text" input id="cardcode"   pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}" placeholder="XXXX XXXX XXXX XXXX" required />
+                <input type="text" input id="phone"   pattern="^\[0]\d{10}" placeholder="0995697973" required />
+                <input type="email" input id="email"  pattern="/^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i" placeholder="Введите Ваш email адрес" required />
+                
+               
+              <input name ="button" type="submit" value="Отправить" />
+                
+              <button onClick="clearfields()">Очистить</button>
+            </form> 
+    
+          </fieldset>
+        </div>
+        <br>
+
+<input type="text" id="letters" style="width: 300px;">
+<br><br>
+<button id="lettersCountButton" onclick="lettersCount()" style="position: relative; left: 35%;"> Посчитать </button>
+
+
+<div id="message">Строка: </div>
+<div id="found">Найдены строки: </div>
+
+<script>
+
+var cc = myform.cardcode;
+
+for (var i in ['input', 'change', 'blur', 'keyup']) {
+    cc.addEventListener('input', formatCardCode, false);
+}
+function formatCardCode() {
+    var cardCode = this.value.replace(/[^\d]/g, '').substring(0,16);
+    cardCode = cardCode != '' ? cardCode.match(/.{1,4}/g).join(' ') : '';
+    this.value = cardCode;
+}
+
+function clearfields(){
+       fname.value = '';
+       sname.value = '';
+       oname.value = '';
+       cardcode.value = '';
+       phone.value = '';
+       email.value = '';
+    };
+
+var fnd = found;
+var ltr = message;
+
+function lettersCount(){
+var lettrs = document.getElementById('letters').value;
+ltr.textContent = "Строка: " + lettrs;
+lettrs.toString();
+var stringLetters = lettrs;
+stringLetters = stringLetters.match(/a\Wb/g);
+fnd.textContent = "Найдены строки: " + stringLetters;
+};
+
+</script>
+</html>

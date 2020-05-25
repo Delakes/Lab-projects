@@ -1,0 +1,79 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="ColorsJQ.js"></script>
+
+    <p><b>Задание: </b>Создать HTML страницу с произвольным оформлением и содержимым, где в
+качестве заголовка указать тему и номер практической работы. Каждое задание
+поместить на страницу.</p> 
+<p><b>1. </b>По нажатию на изображение скрывать его</p> 
+
+    <img src="images\move.png" id="hidepic" style="height: 200px; width: 200px; position: absolute; left: 10%; top: 12%;">
+
+    <p style="position: absolute; top: 40%;"><b>2. </b>Блок красного цвета с текстом внутри, двигается сверху вниз,
+        уменьшается, текст внутри уменьшается, затем блок
+        возвращается вверх и увеличивается до размеров больше, чем
+        изначальные</p>
+    <div id="box" class="bx"> Слово </div>
+
+    <p style="position: absolute; top: 75%;"><b>3. </b>Добавить на страницу форму, содержащую несколько элементов формы, при этом при выборе определенного значения в одном элементе делать недоступным другой элемент.</p>
+
+    <fieldset class="fields">
+    <p><input name="radiob" type="radio" class="radiobt"> Пицца</p>
+    <p><input name="radiob" type="radio" class="radiobt"> Не Пицца</p>
+    <p><input name="radiob" type="radio" class="radiobt"> Всё же пицца</p>
+    <p><input name="ck" type="checkbox" id="ckbox"> А лучше две </p>
+    </fieldset>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br>
+
+<script>
+    
+
+
+    $('#hidepic').click(function() {
+        $('#hidepic').hide();
+    });
+
+    $('#box').click(function () {
+        $('#box').animate({top: '+=20%'}).animate({fontSize: '20px'}).animate({top: '-=20%'}).animate({height: '+=50px', width: '+=50px'}); ;
+    });
+
+    $('#ckbox').click(function(){
+    if($('#ckbox').prop('checked')) {
+    $('.radiobt').prop('checked', false);};
+    });
+
+
+    $('.radiobt').click(function() {
+    if($('.input:checkbox:checked')){
+        $('#ckbox').prop('checked', false);};
+    });
+    
+</script>
+
+<style>
+
+.bx{
+    top: 45%;
+    left: 10%;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    border: black solid 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30;
+}
+
+.fields{
+    position: absolute;
+    left: 10%;
+    top: 80%;
+    width: 175px;
+}
+
+</style>
+
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE tv_programms SYSTEM [
+
+<!ELEMENT tv_programms(programm+)>
+<!ELEMENT programm (name_of_translation, day_of_translation, channel, genre, start_time, duration)>
+<!ELEMENT name_of_translation (#PCDATA)>
+<!ELEMENT day_of_translation (#PCDATA)>
+<!ELEMENT channel (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
+<!ELEMENT start_time (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+
+<!ATTLIST programm id ID #REQUIRED>
+<!ATTLIST genre type CDATA #REQUIRED>
+]>

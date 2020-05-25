@@ -1,0 +1,141 @@
+<html>
+<body vlink="white">
+<link rel="stylesheet" href="styles.css">
+
+<p><b>Задание: </b>1) Используя слои, в документе организуйте меню для доступа к
+  выполненным лабораторным работам в соответствии с вариантом, предложенным
+  преподавателем.</p>
+<p style="margin-left: 68px;">2) Используя самостоятельно созданные изображения (например, в редакторе
+  Paint), выполните задание в соответствии с вариантом.</p>
+<p><b>1. </b>Текстовое двухуровневое меню: при выборе определенного пункта
+  меню пункты верхнего уровня раздвигаются и вставляются подпункты выбранного
+  пункта, т. е. пункт меню «раскрывается».</p>
+
+
+<div id="center" class="menu">Лабораторных</div>
+<div id="sideleft" class="sides">Работ</div>
+<div id="sideright" class="sides">Список</div>
+<ul id="menulist" class="list">
+    <br>
+    <li> <a href="L1.html" target="content">Лабораторная работа 1</li>
+    <li> <a href="L2.html" target="content">Лабораторная работа 2</li>
+    <li> <a href="L3.html" target="content">Лабораторная работа 3</li>
+    <li> <a href="L4.html" target="content">Лабораторная работа 4</li>
+    <li> <a href="L5.html" target="content">Лабораторная работа 5</li>
+    <li> <a href="L6.html" target="content">Лабораторная работа 6</li>
+    <li> <a href="L7.html" target="content">Лабораторная работа 7</li>
+    <li> <a href="L8.html" target="content">Лабораторная работа 8</li>
+    <li> <a href="L9.html" target="content">Лабораторная работа 9</li>
+    <li> <a href="L10.html" target="content">Лабораторная работа 10</a></li>
+</ul>
+
+<p style="position: absolute; top: 52%;"><b>2. </b> Организуйте движение изображения слева направо.</p>
+
+<button id="movepic" style="position: absolute; top: 59%; left: 30%;"> Сдвинуть изображение </button><button id="resetpic" style="position: absolute; top: 59%; left: 40%;"> Сбросить изображение </button>
+<img id="imagetomove" src="images\move.png" width="200" height="200" class="pictureanim">
+</body>
+
+
+<script>
+
+function movesides(){
+  sideleft.style.left = '45%';
+  sideright.style.left = '25%';
+};
+function backsides(){
+  sideleft.style.left = '35%';
+  sideright.style.left = '35%';
+};
+function holdsides(){
+  menulist.style.display = 'block';
+}
+function resetsides(){
+  menulist.style.display = 'none';
+}
+function movepicture(){
+  imagetomove.style.left = '85%';
+};
+function resetpicture(){
+  imagetomove.style.left = '5%';
+};
+
+
+document.getElementById('center').addEventListener('mouseover', movesides);
+document.getElementById('sideright').addEventListener('mouseover', movesides);
+document.getElementById('sideleft').addEventListener('mouseover', movesides);
+document.getElementById('center').addEventListener('mouseout', backsides);
+document.getElementById('sideright').addEventListener('mouseout', backsides);
+document.getElementById('sideleft').addEventListener('mouseout', backsides);
+document.getElementById('center').addEventListener('mouseover', holdsides);
+document.getElementById('center').addEventListener('mouseout', resetsides);
+document.getElementById('menulist').addEventListener('mouseover', holdsides);
+document.getElementById('menulist').addEventListener('mouseover', movesides)
+document.getElementById('menulist').addEventListener('mouseout', resetsides);
+document.getElementById('menulist').addEventListener('mouseout', backsides);
+document.getElementById('movepic').addEventListener('click', movepicture);
+document.getElementById('resetpic').addEventListener('click', resetpicture);
+
+</script>
+
+
+
+<style>
+
+  .menu {
+    position: absolute;
+    left: 35%;
+    height: 25px;
+    width: 180px;
+    background-color: rgb(27, 152, 255);
+    color: white;
+    border: solid 1px rgb(9, 100, 175);
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .list{
+    position: relative;
+    color: white;
+    left: 32%;
+    top: 10px;
+    list-style: none;
+    text-align: center;
+    width: 180px;
+    font-size: 16px;
+    text-transform: none;
+    display: none;
+  }
+
+  .list li {
+  margin-top: 1px;
+      padding: 3px;
+      width: 180px;
+      height: 20px;
+      border-radius: 5px;
+      background-color: black;
+  }
+
+
+  .sides{
+    text-align: center;
+    position: absolute;
+    left: 35%;
+    height: 25px;
+    width: 180px;
+    background-color: black;
+    color: white;
+    border: solid 1px grey;
+    border-radius: 5px;
+    transition: left 0.66s cubic-bezier(0.25, 0.1, 0.25, 1), width 0.66s;
+  }
+
+  .pictureanim{
+    position: absolute; bottom: 5%; left: 5%;
+    transition: left 2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    border: solid black 3px;
+    border-radius: 4px;
+    color: rgb;
+  }
+</style>
+
+</html>

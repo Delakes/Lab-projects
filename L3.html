@@ -1,0 +1,109 @@
+<html>
+<head>
+    <meta charset=utf-8>
+</head>
+<body>
+    
+    
+  <p><b>Задание: </b>Создать калькулятор, содержащего 4 арифметических действия, возведение в степень и скобки.</p> 
+    
+    
+<div id="calcualatorBody">
+    <input type="text" value="" id="calculatorInput">
+
+    <button onClick="clear1()" class="calculatorButtons">C</button>
+    <button onClick="symbolcalc('(')" class="calculatorButtons">(</button>
+    <button onClick="symbolcalc(')')" class="calculatorButtons">)</button>
+    <button onClick="del()" class="calculatorButtons">←</button>
+    <button onClick="symbolcalc(7)" class="calculatorButtons">7</button>
+    <button onClick="symbolcalc(8)" class="calculatorButtons">8</button>
+    <button onClick="symbolcalc(9)" class="calculatorButtons">9</button>
+    <button onClick="symbolcalc('/')" class="calculatorButtons">/</button>
+    <button onClick="symbolcalc(4)" class="calculatorButtons">4</button>
+    <button onClick="symbolcalc(5)" class="calculatorButtons">5</button>
+    <button onClick="symbolcalc(6)" class="calculatorButtons">6</button>
+    <button onClick="symbolcalc('*')" class="calculatorButtons">*</button>
+    <button onClick="symbolcalc(1)" class="calculatorButtons">1</button>
+    <button onClick="symbolcalc(2)" class="calculatorButtons">2</button>
+    <button onClick="symbolcalc(3)" class="calculatorButtons">3</button>
+    <button onClick="symbolcalc('-')" class="calculatorButtons">-</button>
+    <button onClick="symbolcalc('**')" class="calculatorButtons">^</button>
+    <button onClick="symbolcalc(0)" class="calculatorButtons">0</button>
+    <button onClick="ravno()" class="calculatorButtons">=</button>
+    <button onClick="symbolcalc('+')" class="calculatorButtons">+</button>
+    
+
+</div>
+    
+<script>
+
+    
+function clear1() {
+	calculatorInput.value = '';
+};
+
+function symbolcalc(symbolcalc) {
+    valueforcoint = calculatorInput;
+    sym = symbolcalc;
+    valueforcoint.value += sym;
+};
+
+function ravno() {
+ summa = eval(calculatorInput.value);
+ calculatorInput.value = summa;
+};
+
+function del() {
+    calculatorInput.value = calculatorInput.value.slice(0, -1);
+};
+
+</script>   
+
+
+    
+</body>
+
+<style>
+#calcualatorBody{
+    position: relative;
+    top: 10%;
+    left: 32%;
+    width:245px;
+    height: 330px;
+    background-color: rgb(228, 228, 228);
+    border: 1px #000 solid;
+    }
+    
+#calculatorInput{
+    width: 230px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 6px;
+    margin-bottom: 10px;
+    line-height: 25px;
+    text-align: right;
+    font-size: 20px;
+    background-color: #FFF;
+    border: 1px #000 solid;
+    }
+
+.calculatorButtons{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background-color: #FFF;
+    display: inline-block;
+    transition: 0.2s;
+    margin-left: 6px;
+    margin-top: 6px;
+    outline: none;
+    }
+
+.calculatorButtons:hover{
+    background-color:rgb(185, 185, 185);
+    cursor:pointer; 
+    }
+
+</style>
+
+</html>

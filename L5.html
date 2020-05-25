@@ -1,0 +1,63 @@
+<html>
+<body>
+
+<div class="block2">
+<p><b>Задание: </b>Создать скрипт, выполняющий действия в соответствии с вариантом. </p>
+<p><b>Вариант 7: </b>три линейки с бегунками для каждой цветовой составляющей. Изменение
+    положения каждого из бегунков влечет за собой изменение цвета фона документа.</p>
+</div>
+
+<div id="maincolor" class="block1">
+R<input type="range" min="0" max="255" value="255" id="RED"><br><div id="redvalue">255</div><br>
+G<input type="range" min="0" max="255" value="255" id="GREEN"><br><div id="greenvalue">255</div><br>
+B<input type="range" min="0" max="255" value="255" id="BLUE"><br><div id="bluevalue">255</div><br>
+</div>
+</body>
+<script>
+var rv = redvalue;
+var gv = greenvalue;
+var bv = bluevalue;
+
+function colorchange(){
+
+var r = document.getElementById('RED').value;
+var g = document.getElementById('GREEN').value;
+var b = document.getElementById('BLUE').value;
+document.body.style.backgroundColor = 'rgb(' +r+ ',' +g+ ',' +b+')';
+rv.textContent = +r;
+gv.textContent = +g;
+bv.textContent = +b;
+};
+
+document.getElementById('RED').addEventListener('mousemove', colorchange);
+document.getElementById('GREEN').addEventListener('mousemove', colorchange);
+document.getElementById('BLUE').addEventListener('mousemove', colorchange);
+</script>
+
+<style>
+
+    .block1 {
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        border: solid 1px gray;
+        border-radius: 5px;
+        height: auto;
+        width: auto;
+    }
+
+    .block2 {
+        background-color: white;
+        padding: 5px;
+        position: absolute;
+        left: 21%;
+        border: solid 1px gray;
+        border-radius: 5px;
+        height: auto;
+        width: 600px;
+    }
+
+</style>
+</html>
